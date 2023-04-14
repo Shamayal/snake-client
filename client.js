@@ -15,5 +15,10 @@ const connect = function () {
     console.log(data);
   });
 
+  conn.on("connect", () => {
+    console.log("Successfully connected to the game server");
+    conn.write("Name: SHA");
+  });
+  
   return conn;
 };
