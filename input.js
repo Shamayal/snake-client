@@ -1,3 +1,5 @@
+const {moves} = require("./constants");
+
 // Stores the active TCP connection object.
 let connection;
 
@@ -17,19 +19,20 @@ const setupInput = function(conn) {
 const handleUserInput = function(key) {
   let conn = connection;
   // what happens when "data" is received from stdin, meaning when a key is pressed on keyboard input
+  
   if (key === "\u0003") {
     console.log("Game Over");
     process.exit();
-  } else if (key === "w") {
+  } else if (key === moves.up) {
     console.log("Moved up");
     conn.write("Move: up");
-  } else if (key === "a") {
+  } else if (key === moves.left) {
     console.log("Moved left");
     conn.write("Move: left");
-  } else if (key === "s") {
+  } else if (key === moves.down) {
     console.log("Moved down");
     conn.write("Move: down");
-  } else if (key === "d") {
+  } else if (key === moves.right) {
     console.log("Moved right");
     conn.write("Move: right");
   } else if (key === "g") {
@@ -44,7 +47,6 @@ const handleUserInput = function(key) {
   } else {
     console.log("Press a WASD key to move!");
   }
-
 };
 
 module.exports = {setupInput};
