@@ -1,5 +1,5 @@
 const net = require("net");
-const {host, port} = require("./play");
+//const {host, port} = require("./play");
 
 // establishes a connection with the game server
 const connect = function () {
@@ -19,6 +19,7 @@ const connect = function () {
     console.log("Successfully connected to the game server");
     conn.write("Name: SHA");
   });
-  
   return conn;
 };
+
+module.exports = {connect};
